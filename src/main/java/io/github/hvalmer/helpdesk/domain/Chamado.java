@@ -1,6 +1,8 @@
 package io.github.hvalmer.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.github.hvalmer.helpdesk.domain.enums.Prioridade;
+import io.github.hvalmer.helpdesk.domain.enums.Status;
 import lombok.Data;
 
 import javax.persistence.*;
