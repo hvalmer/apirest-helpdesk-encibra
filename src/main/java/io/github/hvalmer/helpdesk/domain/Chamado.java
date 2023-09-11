@@ -9,8 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
 @Data
+@Entity//cria uma tabela com o nome Chamado
 public class Chamado implements Serializable {
     private static final long serialVersionUID = 1L;
 
