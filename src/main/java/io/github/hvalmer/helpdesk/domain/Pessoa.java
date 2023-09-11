@@ -2,15 +2,17 @@ package io.github.hvalmer.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.hvalmer.helpdesk.domain.enums.Perfil;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
-@Data
+@Getter@Setter
 @Entity//cria uma tabela com o nome Pessoa
 public abstract class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -47,6 +49,21 @@ public abstract class Pessoa implements Serializable {
         this.email = email;
         this.senha = senha;
         addPerfil(Perfil.CLIENTE);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(id, pessoa.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     public void addPerfil(Perfil perfil) {
