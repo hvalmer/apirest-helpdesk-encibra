@@ -2,6 +2,7 @@ package io.github.hvalmer.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.hvalmer.helpdesk.domain.enums.Perfil;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public abstract class Pessoa implements Serializable {
     protected Integer id;
     protected String nome;
 
+    @CPF
     @Column(name = "cpf", length = 11, unique = true)//atributo único, ñ havendo igual
     protected String cpf;
 
