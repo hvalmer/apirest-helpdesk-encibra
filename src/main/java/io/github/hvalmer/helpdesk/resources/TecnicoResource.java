@@ -1,6 +1,7 @@
 package io.github.hvalmer.helpdesk.resources;
 
 import io.github.hvalmer.helpdesk.domain.Tecnico;
+import io.github.hvalmer.helpdesk.domain.dtos.TecnicoDTO;
 import io.github.hvalmer.helpdesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +57,5 @@ public class TecnicoResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-    
+
 }

@@ -2,6 +2,7 @@ package io.github.hvalmer.helpdesk.services;
 
 import io.github.hvalmer.helpdesk.domain.Pessoa;
 import io.github.hvalmer.helpdesk.domain.Tecnico;
+import io.github.hvalmer.helpdesk.domain.dtos.TecnicoDTO;
 import io.github.hvalmer.helpdesk.repositoy.PessoaRepository;
 import io.github.hvalmer.helpdesk.repositoy.TecnicoRepository;
 import org.hibernate.ObjectNotFoundException;
@@ -24,9 +25,10 @@ public class TecnicoService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
-    public Tecnico findById(Integer id){
+    public Tecnico findById(Integer id) {
         Optional<Tecnico> obj = tecnicoRepository.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id));
+
     }
 
     public List<Tecnico> findAll(){
@@ -52,7 +54,7 @@ public class TecnicoService {
         validaPorCPFEEmail(objDTO);
         oldObj = new Tecnico(objDTO);
 
-        return tecnicoRepository..save(oldObj);
+        return tecnicoRepository.save(oldObj);
 
     }
 

@@ -38,5 +38,4 @@ public enum Perfil {
 
         throw new IllegalArgumentException("Perfil Inválido");
     }
-
 }

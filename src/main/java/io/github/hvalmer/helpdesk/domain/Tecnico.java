@@ -1,6 +1,7 @@
 package io.github.hvalmer.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.github.hvalmer.helpdesk.domain.dtos.TecnicoDTO;
 import io.github.hvalmer.helpdesk.domain.enums.Perfil;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,7 @@ public class Tecnico extends Pessoa {
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Tecnico() {
+    public Tecnico(TecnicoDTO objDTO) {
         super();
         addPerfil(Perfil.TECNICO);
     }
