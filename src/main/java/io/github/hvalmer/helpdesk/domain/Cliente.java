@@ -14,7 +14,7 @@ import java.util.List;
 public class Cliente extends Pessoa{
     private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
+    @JsonIgnore//protegendo a aplicação contra serialização
     @OneToMany(mappedBy = "cliente")
     private List<Chamado> chamados = new ArrayList<>();
 
