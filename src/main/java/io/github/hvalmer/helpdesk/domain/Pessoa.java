@@ -2,8 +2,6 @@ package io.github.hvalmer.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.hvalmer.helpdesk.domain.enums.Perfil;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
