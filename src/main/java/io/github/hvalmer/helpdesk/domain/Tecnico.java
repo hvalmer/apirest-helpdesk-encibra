@@ -3,15 +3,13 @@ package io.github.hvalmer.helpdesk.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.hvalmer.helpdesk.domain.dtos.TecnicoDTO;
 import io.github.hvalmer.helpdesk.domain.enums.Perfil;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Getter@Setter
 @Entity//cria uma tabela com o nome Tecnico
 public class Tecnico extends Pessoa {
     private static final long serialVersionUID = 1L;
@@ -20,7 +18,7 @@ public class Tecnico extends Pessoa {
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Tecnico(TecnicoDTO objDTO) {
+    public Tecnico() {
         super();
         addPerfil(Perfil.TECNICO);
     }
@@ -30,5 +28,24 @@ public class Tecnico extends Pessoa {
         addPerfil(Perfil.TECNICO);
     }
 
+    public Tecnico(TecnicoDTO obj) {
+        super();
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.cpf = obj.getCpf();
+        this.email = obj.getEmail();
+        this.senha = obj.getSenha();
+        this.perfis = obj.getPerfis().stream().map(Perfil::getCodigo).collect(Collectors.toSet());
+        this.dataCriacao = obj.getDataCriacao();
+
+    }
+
+    public List<Chamado> getChamados() {
+        return chamados;
+    }
+
+    public void setChamados(List<Chamado> chamados) {
+        this.chamados = chamados;
+    }
 
 }
