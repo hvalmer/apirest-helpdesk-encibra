@@ -1,5 +1,6 @@
 package io.github.hvalmer.helpdesk.config;
 
+import io.github.hvalmer.helpdesk.security.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
@@ -15,7 +16,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import org.springframework.helpdesk.security.JWTAuthenticationFilter;
 
 import java.util.Arrays;
 
