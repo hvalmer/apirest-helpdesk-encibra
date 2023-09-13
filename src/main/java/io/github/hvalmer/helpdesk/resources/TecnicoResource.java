@@ -30,7 +30,7 @@ public class TecnicoResource {
     @GetMapping
     public ResponseEntity<List<TecnicoDTO>> findAll(){
         List<Tecnico> list = service.findAll();
-        List<TecnicoDTO> listDTO = list.stream().map(obj -> new TecnicoDTO(obj))
+        List<TecnicoDTO> listDTO = list.stream().map(TecnicoDTO::new)
                 .collect(Collectors.toList());
         return ResponseEntity.ok().body(listDTO);
     }
